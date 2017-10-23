@@ -21,7 +21,7 @@ class UserManager extends User{
         if(count($result)>0){
 
             $row = $result[0];
-            Echo "User logged in";
+            Echo "User logged in<br>";
             return $this->setData($row);
 
         }else{
@@ -31,6 +31,8 @@ class UserManager extends User{
         }
 
     }
+
+
     //returns Object USER
     public function loadUser($id){
 

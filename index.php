@@ -8,17 +8,13 @@
 
 require_once ('config.php');
 
-/***************************************************************************/
-//SELECT AND SHOW CONTENT OF THE DB - USING A FUNCTION CREATED BY ME
-/***************************************************************************/
-
 $myUserManager = new UserManager();
 
 /***************************************************************************/
 //LOGIN USER
 /***************************************************************************/
 
-$userLogin = $myUserManager->loginUser('cmesquita@gmail.com','123456');
+$userLogin = $myUserManager->loginUser('ccarvalho@gmail.com','123456');
 
 Echo $userLogin->getFirstName();
 Echo '<br>';
@@ -60,7 +56,7 @@ foreach ($users as $user){
     Echo "<br>";
     foreach ($user as $key=>$value ){
 
-        Echo "$key $value <br>";
+        Echo "<strong>$key: </strong> $value <br>";
 
     }
 }
@@ -83,5 +79,75 @@ $myUserManager->updateUser(3, array(
 
 $myUserManager->deleteUser(4);
 
+ECHO "***********************************************************************<br>";
+/***************************************************************************/
+/***************************************************************************/
+//CUSTOMER
+/***************************************************************************/
+/***************************************************************************/
+
+$myCustomerManager = new CustomerManager();
+
+/***************************************************************************/
+//LOGIN CUSTOMER
+/***************************************************************************/
 
 
+/***************************************************************************/
+//LOAD CUSTOMER
+/***************************************************************************/
+
+$customerLoad = $myCustomerManager->loadCustomer(1);
+
+Echo $customerLoad->getFirstName();
+Echo $customerLoad->getLastName();
+/***************************************************************************/
+//INSERT CUSTOMER
+/***************************************************************************/
+$myCustomerManager->insertCustomer(array(
+    'idCustomer' => '5',
+    'firstName' =>'Maria',
+    'lastName' =>'Machado',
+    'email' =>'mmachado@gmail.com',
+    'password' =>'123456',
+    'state' =>'1',
+    'date' =>'2017-10-23 22:09:01'
+
+));
+
+/***************************************************************************/
+//GET CUSTOMERS
+/***************************************************************************/
+$customers = $myCustomerManager->getCustomers();
+
+foreach ($customers as $customer){
+    Echo "<br>";
+    foreach ($customer as $key=>$value ){
+
+        Echo  ucwords("<strong>$key:</strong> $value <br>");
+
+
+    }
+}
+
+
+/***************************************************************************/
+//UPDATE CUSTOMER
+/***************************************************************************/
+$myCustomerManager->updateCustomer(5,
+    array(
+        'idCustomer' => '5',
+        'firstName' =>'Maria',
+        'lastName' =>'Machado',
+        'email' =>'mmachado@gmail.com',
+        'password' =>'123456',
+        'state' =>'1',
+        'date' =>'2017-10-23 22:09:01'
+    ));
+
+
+/***************************************************************************/
+//DELETE CUSTOMER
+/***************************************************************************/
+
+$myCustomerManager->deleteCustomer(5);
