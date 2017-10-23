@@ -1,0 +1,13 @@
+CREATE TABLE user (
+
+idUser INT NOT NULL AUTO_INCREMENT,
+firstName VARCHAR(100) NOT NULL,
+lastName VARCHAR (100) NOT NULL,
+email VARCHAR (100) NOT NULL,
+password VARCHAR (100) NOT NULL,
+state INT,
+date TIMESTAMP,
+PRIMARY KEY (idUser)
+
+
+);
