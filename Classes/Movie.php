@@ -8,7 +8,7 @@
 
 class Movie
 {
-    public $id;
+    public $idMovie;
     public $name;
     public $year;
     public $director;
@@ -18,17 +18,17 @@ class Movie
     /**
      * @return mixed
      */
-    public function getId()
+    public function getIdMovie()
     {
-        return $this->id;
+        return $this->idMovie;
     }
 
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setIdMovie($id)
     {
-        $this->id = $id;
+        $this->idMovie = $id;
     }
 
 

@@ -151,3 +151,84 @@ $myCustomerManager->updateCustomer(5,
 /***************************************************************************/
 
 $myCustomerManager->deleteCustomer(5);
+
+ECHO "***********************************************************************<br>";
+/***************************************************************************/
+/***************************************************************************/
+//STORE MANAGER
+/***************************************************************************/
+/***************************************************************************/
+
+$myStoreManager = new StoreManager();
+
+/***************************************************************************/
+//INSERT MOVIE
+/***************************************************************************/
+
+/*$myStoreManager->insertMovie(array(
+
+        'idMovie' => '3',
+        'name' =>'Happy Death Day',
+        'year' =>'2017',
+        'director' =>'Christopher Landon',
+        'category' =>'Horror',
+        'availability' =>'3'
+
+    )
+);*/
+
+/***************************************************************************/
+//GET MOVIES
+/***************************************************************************/
+
+$movies = $myStoreManager->getMovies();
+
+$results = count($movies);
+
+        Echo "MOVIE LIST<br><br>";
+
+for($i=0 ; $i<$results; $i++){
+
+$row = $movies[$i];
+
+    Echo "<strong>Name: </strong>".$row['name'];
+    Echo '<br>';
+    Echo "<strong>Category: </strong>".$row['category'];
+    Echo '<br>';
+    Echo "<strong>Number available: </strong>".$row['availability'];
+    Echo '<br>';
+    Echo '<br>';
+
+}
+
+/***************************************************************************/
+//LOAD MOVIE
+/***************************************************************************/
+
+$movieLoaded = $myStoreManager->loadMovie(3);
+
+Echo $movieLoaded->getName();
+Echo '<br>';
+Echo $movieLoaded->getAvailability();
+/***************************************************************************/
+//UPDATE MOVIE
+/***************************************************************************/
+
+$myStoreManager->updateMovie(3,array(
+
+    'name' =>'Happy Death Day',
+    'year' =>'2017',
+    'director' =>'Christopher Landon',
+    'category' =>'Horror',
+    'availability' =>'5'
+));
+
+
+/***************************************************************************/
+//DELETE MOVIE
+/***************************************************************************/
+
+//$myStoreManager->deleteMovie(2);
+
+
+
