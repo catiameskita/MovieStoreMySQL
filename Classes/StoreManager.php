@@ -55,7 +55,6 @@ class StoreManager extends Movie
             return $movie;
         }
 
-
     }
 
     public function updateMovie($idMovie, $newData=array() ){
@@ -71,8 +70,6 @@ class StoreManager extends Movie
                 ':director'  => $newData['director'],
                 ':category'  => $newData['category'],
                 ':availability'=> $newData['availability']
-
-
 
         ));
 

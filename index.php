@@ -77,7 +77,7 @@ $myUserManager->updateUser(3, array(
 //DELETE USER
 /***************************************************************************/
 
-$myUserManager->deleteUser(4);
+//$myUserManager->deleteUser(4);
 
 ECHO "***********************************************************************<br>";
 /***************************************************************************/
@@ -150,7 +150,7 @@ $myCustomerManager->updateCustomer(5,
 //DELETE CUSTOMER
 /***************************************************************************/
 
-$myCustomerManager->deleteCustomer(5);
+//$myCustomerManager->deleteCustomer(5);
 
 ECHO "***********************************************************************<br>";
 /***************************************************************************/
@@ -205,15 +205,15 @@ $row = $movies[$i];
 //LOAD MOVIE
 /***************************************************************************/
 
-$movieLoaded = $myStoreManager->loadMovie(3);
+/*$movieLoaded = $myStoreManager->loadMovie(3);
 
 Echo $movieLoaded->getName();
 Echo '<br>';
-Echo $movieLoaded->getAvailability();
+Echo $movieLoaded->getAvailability();*/
 /***************************************************************************/
 //UPDATE MOVIE
 /***************************************************************************/
-
+/*
 $myStoreManager->updateMovie(3,array(
 
     'name' =>'Happy Death Day',
@@ -221,7 +221,7 @@ $myStoreManager->updateMovie(3,array(
     'director' =>'Christopher Landon',
     'category' =>'Horror',
     'availability' =>'5'
-));
+));*/
 
 
 /***************************************************************************/
@@ -231,4 +231,67 @@ $myStoreManager->updateMovie(3,array(
 //$myStoreManager->deleteMovie(2);
 
 
+ECHO "<br>***********************************************************************<br>";
+/***************************************************************************/
+/***************************************************************************/
+//RENTAL MANAGER
+/***************************************************************************/
+/***************************************************************************/
 
+$myRentalManager = new RentalManager();
+
+/***************************************************************************/
+//RENTAL
+/***************************************************************************/
+
+
+
+//$myRental = new Rental(1,2,1);
+
+/*$myRentalManager->insertRental(
+    array(
+    'idRental' => '1',
+    'idUser' => '1',
+    'idCustomer' => '2',
+    'idMovie' => '2',
+    'date' =>'2017-10-25 15:46:02',
+    'devolution' => '2017-10-25 15:50:00'
+));*/
+
+
+/*$myRentalManager->insertRental(
+    array(
+    'idRental' => '2',
+    'idUser' => '3',
+    'idCustomer' => '1',
+    'idMovie' => '3',
+    'date' =>'2017-10-25 16:46:02',
+    'devolution' => '2017-10-25 16:48:00'
+));*/
+
+//$debug = $myRentalManager->loadRental(1);
+
+
+
+//$myRentalManager->getRentals();
+//$rentals = $myRentalManager->getRentals();
+
+/*$myRentalManager->updateRental(1, array(
+    'idRental' => '1',
+    'idUser' => '2',
+    'idCustomer' => '2',
+    'idMovie' => '2',
+    'date' =>'2017-10-25 16:46:02',
+    'devolution' => '2017-10-25 16:48:00'
+
+));*/
+
+/*$myRentalManager->updateRental(1, array(
+   'idUser' => '2'
+));*/
+
+//$myRentalManager->deleteRental(1);
+
+//$myRentalManager->rental(1,2,3);
+
+$myRentalManager->overdue(1);
