@@ -8,34 +8,42 @@
 
 require_once ('config.php');
 
+
 $myUserManager = new UserManager();
 
 /***************************************************************************/
 //LOGIN USER
 /***************************************************************************/
+Echo "***************************************************************************";
+Echo "LOGIN";
+Echo "***************************************************************************<br><br>";
+/***************************************************************************/
+/***************************************************************************/
 
 $userLogin = $myUserManager->loginUser('ccarvalho@gmail.com','123456');
 
-Echo $userLogin->getFirstName();
+Echo $userLogin->getFirstName().' '.$userLogin->getLastName();
 Echo '<br>';
-Echo $userLogin->getLastName();
 
+Echo "***************************************************************************";
+Echo "USERS";
+Echo "***************************************************************************<br><br>";
 /***************************************************************************/
 //LOAD USER
 /***************************************************************************/
 
-$userLoad = $myUserManager->loadUser(3);
+/*$userLoad = $myUserManager->loadUser(3);
 
 Echo $userLoad->getFirstName();
 Echo '<br>';
-Echo $userLoad->getLastName();
+Echo $userLoad->getLastName();*/
 
 
 /***************************************************************************/
 //INSERT USER
 /***************************************************************************/
 
-$myUserManager->insertUser(array(
+/*$myUserManager->insertUser(array(
 
     'idUser' => '4',
     'firstName' =>'Catia',
@@ -44,11 +52,12 @@ $myUserManager->insertUser(array(
     'password' =>'123456',
     'state' =>'0',
     'date' =>'2017-10-22 11:11:01'
-));
+));*/
 
 /***************************************************************************/
 //GET USERS
 /***************************************************************************/
+
 
 $users = $myUserManager->getUsers();
 
@@ -64,14 +73,14 @@ foreach ($users as $user){
 //UPDATE USER
 /***************************************************************************/
 
-$myUserManager->updateUser(3, array(
+/*$myUserManager->updateUser(3, array(
     'firstName' => 'Catarina',
     'lastName' => 'Carvalho',
     'email'    => 'ccarvalho@gmail.com',
     'password' => '123456',
     'state' =>  '0',
     'date' => '2017/10/23 14:10'
-));
+));*/
 
 /***************************************************************************/
 //DELETE USER
@@ -79,7 +88,9 @@ $myUserManager->updateUser(3, array(
 
 //$myUserManager->deleteUser(4);
 
-ECHO "***********************************************************************<br>";
+Echo "***************************************************************************";
+Echo "CUSTOMERS";
+Echo "***************************************************************************<br><br>";
 /***************************************************************************/
 /***************************************************************************/
 //CUSTOMER
@@ -97,14 +108,14 @@ $myCustomerManager = new CustomerManager();
 //LOAD CUSTOMER
 /***************************************************************************/
 
-$customerLoad = $myCustomerManager->loadCustomer(1);
+/*$customerLoad = $myCustomerManager->loadCustomer(1);
 
 Echo $customerLoad->getFirstName();
-Echo $customerLoad->getLastName();
+Echo $customerLoad->getLastName();*/
 /***************************************************************************/
 //INSERT CUSTOMER
 /***************************************************************************/
-$myCustomerManager->insertCustomer(array(
+/*$myCustomerManager->insertCustomer(array(
     'idCustomer' => '5',
     'firstName' =>'Maria',
     'lastName' =>'Machado',
@@ -113,7 +124,7 @@ $myCustomerManager->insertCustomer(array(
     'state' =>'1',
     'date' =>'2017-10-23 22:09:01'
 
-));
+));*/
 
 /***************************************************************************/
 //GET CUSTOMERS
@@ -134,7 +145,7 @@ foreach ($customers as $customer){
 /***************************************************************************/
 //UPDATE CUSTOMER
 /***************************************************************************/
-$myCustomerManager->updateCustomer(5,
+/*$myCustomerManager->updateCustomer(5,
     array(
         'idCustomer' => '5',
         'firstName' =>'Maria',
@@ -143,7 +154,7 @@ $myCustomerManager->updateCustomer(5,
         'password' =>'123456',
         'state' =>'1',
         'date' =>'2017-10-23 22:09:01'
-    ));
+    ));*/
 
 
 /***************************************************************************/
@@ -152,7 +163,10 @@ $myCustomerManager->updateCustomer(5,
 
 //$myCustomerManager->deleteCustomer(5);
 
-ECHO "***********************************************************************<br>";
+
+Echo "***************************************************************************";
+Echo "MOVIES";
+Echo "***************************************************************************<br><br>";
 /***************************************************************************/
 /***************************************************************************/
 //STORE MANAGER
@@ -231,7 +245,10 @@ $myStoreManager->updateMovie(3,array(
 //$myStoreManager->deleteMovie(2);
 
 
-ECHO "<br>***********************************************************************<br>";
+
+Echo "***************************************************************************";
+Echo "RENTALS";
+Echo "***************************************************************************<br><br>";
 /***************************************************************************/
 /***************************************************************************/
 //RENTAL MANAGER
@@ -294,4 +311,12 @@ $myRentalManager = new RentalManager();
 
 //$myRentalManager->rental(1,2,3);
 
+$myRentalManager->getRentals();
+Echo"<br>";
+
+Echo "***************************************************************************";
+Echo "OVERDUE LIST";
+Echo "***************************************************************************<br><br>";
 $myRentalManager->overdue(1);
+$myRentalManager->overdue(2);
+Echo"<br>";

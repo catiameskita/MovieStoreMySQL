@@ -18,7 +18,7 @@ class Rental{
     /**
      * @return mixed
      */
-   /* public function __construct($idUser, $idCustomer,$idMovie)
+ /*   public function __construct($idUser, $idCustomer,$idMovie)
     {
         $this->idUser = $idUser;
         $this->idCustomer = $idCustomer;

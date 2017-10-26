@@ -222,11 +222,9 @@ class RentalManager
 
     }
 
-
-
-    /*******************************************************/
-    /*******************************************************/
-    /*******************************************************/
+    /*********************************************************************/
+    /************ANOTHER IMPLEMENTATION***********************************/
+    /*********************************************************************/
 
 
     public function insertRental($rentalData = array()){
@@ -247,7 +245,16 @@ class RentalManager
 
         $sql = new Sql();
 
-        return $sql->mySelect("SELECT * FROM rental ORDER BY idRental");
+        $results = $sql->mySelect("SELECT * FROM rental ORDER BY idRental");
+
+        foreach ($results as $result){
+            Echo '<br>';
+            foreach ($result as $key=>$value){
+
+                Echo "$key: $value<br>";
+            }
+        }
+
     }
 
 
@@ -263,7 +270,7 @@ class RentalManager
                 ':date'         => $newData['date'],
                 ':devolution'   => $newData['devolution']
             ));
-        Echo "doing someStuff";
+
 
     }
 
@@ -307,7 +314,7 @@ class RentalManager
         }
     }
 
-    public function overdue($idRental){
+       public function overdue($idRental){
 
         $rental = new Rental();
         $currentTime = new DateTime();
@@ -319,19 +326,16 @@ class RentalManager
         $h = 30;
 
         if($lap > $h){
-            Echo 'Overdue List<br>';
-            Echo 'User ID: '.$this->loadRental($idRental)->getIdUser();
-            Echo ' Customer ID: '.$this->loadRental($idRental)->getIdCustomer();
-            Echo ' Movie ID: '.$this->loadRental($idRental)->getIdMovie();
+            Echo '<br><strong>User ID:</strong> '.$this->loadRental($idRental)->getIdUser();
+            Echo ' <strong>Customer ID:</strong> '.$this->loadRental($idRental)->getIdCustomer();
+            Echo ' <strong>Movie ID:</strong> '.$this->loadRental($idRental)->getIdMovie();
 
-            $file = fopen("overdue.txt", "w+");
+            $file = fopen("overdue.txt", "a+");
 
             fwrite($file, "Overdue $idRental - $lap"."\r\n");
 
             fclose($file);
-
         }
-
 
     }
 
